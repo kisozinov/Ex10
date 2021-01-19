@@ -2,14 +2,14 @@
 #include <iostream>
 #include "postfix.h"
 
-std::map<const char, const unsigned int> priority = { {'(', 0}, {')', 1}, {'+', 2},
-                                  {'-', 2}, {'*', 3}, {'/', 3} };
+std::map<const char, const unsigned int> priority = 
+                               { {'(', 0}, {')', 1},
+           {'+', 2}, {'-', 2}, {'*', 3}, {'/', 3} };
 std::map<const char, const unsigned int> *pr_ptr = &priority;
 MyStack<char> stack(200);
 
 bool isOperation(std::map<const char, const unsigned int> *pr, char s) {
     bool res = false;
-    //std::map<char, unsigned int>::iterator it;
     for (auto& kv : *pr) {
         if (kv.first == s)
             return true;
@@ -18,7 +18,6 @@ bool isOperation(std::map<const char, const unsigned int> *pr, char s) {
 
 std::string infix2postfix(const std::string inp) {
     std::string out;
-    
 
     for (unsigned int i = 0; i < inp.length(); ++i) {
         if (inp[i] == ' ')
@@ -32,9 +31,11 @@ std::string infix2postfix(const std::string inp) {
             continue;
         }
         if (isOperation(pr_ptr, inp[i])) {
-            if ((priority[inp[i]] == 0) || (priority[inp[i]] > priority[stack.get()]) || (stack.isEmpty()))
+            if ((priority[inp[i]] == 0) ||
+                (priority[inp[i]] > priority[stack.get()])
+                || (stack.isEmpty())) {
                 stack.push(inp[i]);
-            else {
+            } else {
                 while (priority[stack.get()] >= priority[inp[i]]) {
                     out.push_back(stack.pop());
                     out.push_back(' ');
