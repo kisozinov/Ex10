@@ -22,7 +22,7 @@ template <typename T> class MyStack {
     MyStack(const MyStack &st) {
         this->size = st.size;
         this->data = st.data;
-        this->top_index = size - 1;
+        this->top_index = st.top_index;
     }
     ~MyStack() {
         delete[] data;

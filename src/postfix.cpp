@@ -2,7 +2,7 @@
 #include <iostream>
 #include "postfix.h"
 
-std::map<const char, const unsigned int> priority = 
+std::map<const char, const unsigned int> priority =
                                { {'(', 0}, {')', 1},
            {'+', 2}, {'-', 2}, {'*', 3}, {'/', 3} };
 std::map<const char, const unsigned int> *pr_ptr = &priority;
