@@ -9,6 +9,7 @@ bool isOperation(std::map<const char, const unsigned int> *pr, char s) {
         if (kv.first == s)
             return true;
     }
+    return false;
 }
 
 std::string infix2postfix(const std::string inp) {
