@@ -3,7 +3,6 @@
 #include "postfix.h"
 
 
-
 bool isOperation(std::map<const char, const unsigned int> *pr, char s) {
     bool res = false;
     for (auto& kv : *pr) {
