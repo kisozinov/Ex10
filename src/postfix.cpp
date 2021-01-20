@@ -2,11 +2,7 @@
 #include <iostream>
 #include "postfix.h"
 
-std::map<const char, const unsigned int> priority =
-                               { {'(', 0}, {')', 1},
-           {'+', 2}, {'-', 2}, {'*', 3}, {'/', 3} };
-std::map<const char, const unsigned int> *pr_ptr = &priority;
-MyStack<char> stack(200);
+
 
 bool isOperation(std::map<const char, const unsigned int> *pr, char s) {
     bool res = false;
@@ -18,6 +14,11 @@ bool isOperation(std::map<const char, const unsigned int> *pr, char s) {
 
 std::string infix2postfix(const std::string inp) {
     std::string out;
+    MyStack<char> stack(200);
+    std::map<const char, const unsigned int> priority =
+    { {'(', 0}, {')', 1},
+    {'+', 2}, {'-', 2}, {'*', 3}, {'/', 3} };
+    std::map<const char, const unsigned int> *pr_ptr = &priority;
 
     for (unsigned int i = 0; i < inp.length(); ++i) {
         if (inp[i] == ' ')
