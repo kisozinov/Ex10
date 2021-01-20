@@ -6,7 +6,7 @@
 #include <string>
 #include <map>
 
-std::string infix2postfix (const std::string);
+std::string infix2postfix(const std::string);
 bool isOperation(std::map<const char, const unsigned int> *pr, char s);
 
 #endif  // INCLUDE_POSTFIX_H_
