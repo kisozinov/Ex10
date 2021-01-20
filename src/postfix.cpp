@@ -46,7 +46,8 @@ std::string infix2postfix(const std::string inp) {
 
         } else {
             out.push_back(inp[i]);
-            out.push_back(' ');
+            if (inp[i] != '.' && inp[i + 1] != '.')
+                out.push_back(' ');
         }
     }
 
